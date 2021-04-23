@@ -18,3 +18,16 @@ def load_json(filesource:str):
 
 
 
+def search(city:str):
+
+    """ handler to return network coverage for the given city
+    param(str) : city
+    return (dict) or (str) response object
+    """
+
+    filesource = f'{os.getcwd()}/database.json'
+    error_message = f'{city} not found in our current database'
+    dataset = load_json(filesource)
+
+    return dataset.get(city, error_message)
+
